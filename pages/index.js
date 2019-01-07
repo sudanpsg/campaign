@@ -10,6 +10,7 @@ class Mycampaign extends Component {
     const campaigns = await myfact.methods.getcamp().call();
     var i = 0;
     let val = [];
+    let camp_obj = [];
 
     //const camp = new web3.eth.Contract(
     //  JSON.parse(campcompile.interface),
@@ -21,10 +22,14 @@ class Mycampaign extends Component {
         JSON.parse(campcompile.interface),
         campaigns[i]
       );
-      console.log("inside the forloop ", camparr);
-      val.push(await camparr.methods.minamnt().call());
+      //console.log("inside the forloop ", camparr);
+      camp_obj.push({
+        desc: await camparr.methods.desc().call(),
+        value: await camparr.methods.minamnt().call()
+      });
     }
-    console.log("the value is ", val);
+    console.log("my camp object is ", camp_obj);
+    //console.log("the value is ", val);
     // const vals = await camps[0].methods.minamnt().call();
 
     //   const camps = new web3.eth.Contract(JSON.parse(campcompile.interface), address);
@@ -33,7 +38,7 @@ class Mycampaign extends Component {
     //  console.log("inside then main contract", tot_contrib);
     // });
     // campaign_det;
-    return { campaigns, val };
+    return { campaigns, camp_obj };
   }
   // async componentDidMount() {
   //  const campaigns = await factory.methods.getcamp().call();
@@ -47,8 +52,12 @@ class Mycampaign extends Component {
     for (i = 0; i < this.props.campaigns.length; i++) {
       items.push({
         image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+        extra: this.props.camp_obj[i].desc,
+        href: "#card-example-link-card",
         header: this.props.campaigns[i],
-        description: <div>Minimum contribution{this.props.val[i]} </div>,
+        description: (
+          <div>Minimum contribution{this.props.camp_obj[i].value} </div>
+        ),
         fluid: true
       });
     }

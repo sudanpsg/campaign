@@ -1,13 +1,13 @@
-pragma solidity >=0.4.22 <0.6.0;
+pragma solidity ^0.4.24;
 
 contract Factory{
     address [] public camparr;
-    function createcamp (uint min) public 
+    function createcamp (uint min,string desc) public 
     {
-        address mycamp = new campaign(min,msg.sender);
+        address mycamp = new campaign(min,msg.sender,desc);
         camparr.push(mycamp);
     }
-    
+   
     function getcamp() public view returns(address []) {
         return camparr;
     }
@@ -21,15 +21,17 @@ contract campaign{
         uint totapproved;
     mapping (address=>bool) approvals;
     }
+    string  public desc;
     address public manager;
     mapping (address=>bool) public approvers;
     uint public minamnt;
     Request [] public reqarray;
     uint public total_contribution;
     
-    constructor(uint min,address creator){
+    constructor(uint min,address creator,string _desc){
         manager = creator;
         minamnt = min;
+        desc = _desc;
     } 
     modifier restricted(){
         require(msg.sender== manager);
