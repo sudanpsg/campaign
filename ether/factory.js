@@ -8,6 +8,4 @@ const myfact = new web3.eth.Contract(
   deployed_addres
 );
 
-console.log("I am deployed", myfact);
-
-export default myfact;
+export { myfact };
