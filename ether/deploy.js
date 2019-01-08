@@ -20,3 +20,4 @@ const deploy = async () => {
 };
 deploy();
 //deployed address  0x842461146ABcdB32292A08DA066bECB8cC249d41
+// latest deployed address is 0x722FeCE4Af65Cf3EDf52bAaB514D77ff77d905AA

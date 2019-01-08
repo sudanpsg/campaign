@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { myfact, camp_arr } from "../ether/factory";
+import { myfact } from "../ether/factory";
 import { Card, Button } from "semantic-ui-react";
 import Layout from "../components/layout";
 import campcompile from "../ether/build/campaign.json";
@@ -50,14 +50,15 @@ class Mycampaign extends Component {
     var items = [];
     console.log("hi world", this.props.val);
     for (i = 0; i < this.props.campaigns.length; i++) {
+      const pk = this.props.campaigns[i];
       items.push({
         image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
-        extra: this.props.camp_obj[i].desc,
-        href: "#card-example-link-card",
-        header: this.props.campaigns[i],
-        description: (
-          <div>Minimum contribution{this.props.camp_obj[i].value} </div>
+        extra: (
+          <div>Minimum contribution : {this.props.camp_obj[i].value} </div>
         ),
+        color: "orange",
+        href: "#card-example-link-card",
+        header: this.props.camp_obj[i].desc,
         fluid: true
       });
     }
@@ -69,19 +70,14 @@ class Mycampaign extends Component {
     return (
       <Layout>
         <div>
-          <link
-            rel="stylesheet"
-            href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css"
-          />
           <h3>Open Campaigns</h3>
+          {this.rendercamp()}
           <Button
             floated="right"
             content="Create Campaign"
             icon="add circle"
             primary
           />
-          {this.rendercamp()}
-          {this.props.tot_contrib}
         </div>
       </Layout>
     );

@@ -114,6 +114,7 @@ var _jsxFileName = "C:\\Users\\hnandakumar\\myproj\\campaign\\campaign\\componen
     style: {
       marginTop: "10px"
     },
+    color: "orange",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
@@ -162,8 +163,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header */ "./components/header.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header */ "./components/header.js");
 var _jsxFileName = "C:\\Users\\hnandakumar\\myproj\\campaign\\campaign\\components\\layout.js";
+
 
 
 
@@ -171,13 +175,27 @@ var _jsxFileName = "C:\\Users\\hnandakumar\\myproj\\campaign\\campaign\\componen
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Container"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+    rel: "stylesheet",
+    href: "//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
     },
     __self: this
   }), props.children);
@@ -338,18 +356,19 @@ function (_Component) {
       console.log("hi world", this.props.val);
 
       for (i = 0; i < this.props.campaigns.length; i++) {
+        var pk = this.props.campaigns[i];
         items.push({
           image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
-          extra: this.props.camp_obj[i].desc,
-          href: "#card-example-link-card",
-          header: this.props.campaigns[i],
-          description: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          extra: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 59
+              lineNumber: 57
             },
             __self: this
-          }, "Minimum contribution", this.props.camp_obj[i].value, " "),
+          }, "Minimum contribution : ", this.props.camp_obj[i].value, " "),
+          color: "orange",
+          href: "#card-example-link-card",
+          header: this.props.camp_obj[i].desc,
           fluid: true
         });
       }
@@ -359,7 +378,7 @@ function (_Component) {
         itemsPerRow: "5",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 65
         },
         __self: this
       });
@@ -371,40 +390,32 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 71
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("link", {
-        rel: "stylesheet",
-        href: "//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css",
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 72
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 73
         },
         __self: this
-      }, "Open Campaigns"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      }, "Open Campaigns"), this.rendercamp(), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         floated: "right",
         content: "Create Campaign",
         icon: "add circle",
         primary: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 75
         },
         __self: this
-      }), this.rendercamp(), this.props.tot_contrib));
+      })));
     }
   }], [{
     key: "getInitialProps",
@@ -528,6 +539,17 @@ module.exports = __webpack_require__(/*! ./pages/index.js */"./pages/index.js");
 /***/ (function(module, exports) {
 
 module.exports = require("@babel/runtime/regenerator");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ }),
 

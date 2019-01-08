@@ -3,7 +3,7 @@ import { Menu } from "semantic-ui-react";
 
 export default () => {
   return (
-    <Menu style={{ marginTop: "10px" }}>
+    <Menu style={{ marginTop: "10px" }} color="orange">
       <Menu.Item>CrowdCoin</Menu.Item>
 
       <Menu.Menu position="right">
