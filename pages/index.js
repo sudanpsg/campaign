@@ -4,6 +4,7 @@ import { Card, Button } from "semantic-ui-react";
 import Layout from "../components/layout";
 import campcompile from "../ether/build/campaign.json";
 import web3 from "../ether/web3";
+import { Link } from "../routes";
 class Mycampaign extends Component {
   static async getInitialProps() {
     console.log("hi guys");
@@ -52,12 +53,17 @@ class Mycampaign extends Component {
     for (i = 0; i < this.props.campaigns.length; i++) {
       const pk = this.props.campaigns[i];
       items.push({
-        image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+        image:
+          "http://www.pngonly.com/wp-content/uploads/2017/06/Technology-PNG.png",
         extra: (
-          <div>Minimum contribution : {this.props.camp_obj[i].value} </div>
+          <Link route={`/campaigns/${pk}`}>
+            <a>
+              <div>Minimum contribution : {this.props.camp_obj[i].value} </div>
+            </a>
+          </Link>
         ),
         color: "orange",
-        href: "#card-example-link-card",
+        href: "#card-example-link-card'",
         header: this.props.camp_obj[i].desc,
         fluid: true
       });
@@ -72,12 +78,16 @@ class Mycampaign extends Component {
         <div>
           <h3>Open Campaigns</h3>
           {this.rendercamp()}
-          <Button
-            floated="right"
-            content="Create Campaign"
-            icon="add circle"
-            primary
-          />
+          <Link route="/campaigns/new">
+            <a>
+              <Button
+                floated="right"
+                content="Create Campaign"
+                icon="add circle"
+                primary
+              />
+            </a>
+          </Link>
         </div>
       </Layout>
     );

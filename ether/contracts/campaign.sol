@@ -70,4 +70,14 @@ contract campaign{
      myreq.complete = true;
      myreq.reciver.transfer(myreq.value);
     }
+
+    function getsummary() public view returns(uint,uint,uint,string,address)
+    {
+        return(total_contribution,this.balance,reqarray.length,desc,manager);
+    }
+
+    function getreqlen() public view returns(uint)
+    {
+        return(reqarray.length);
+    }
 }
